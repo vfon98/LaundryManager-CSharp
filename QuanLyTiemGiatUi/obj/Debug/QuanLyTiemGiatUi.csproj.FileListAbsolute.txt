@@ -1,0 +1,13 @@
+D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\bin\Debug\QuanLyTiemGiatUi.exe.config
+D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\bin\Debug\QuanLyTiemGiatUi.exe
+D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\bin\Debug\QuanLyTiemGiatUi.pdb
+D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.csprojResolveAssemblyReference.cache
+D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.frmLogin.resources
+D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.Properties.Resources.resources
+D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.csproj.GenerateResource.Cache
+D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.exe
+D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.pdb
+D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.frmMain.resources
+D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.OrderForm.resources
+D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.ServiceForm.resources
+D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.StaffForm.resources
