@@ -29,22 +29,18 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.parentTab = new System.Windows.Forms.TabControl();
+			this.tabMain = new System.Windows.Forms.TabPage();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.gridService = new System.Windows.Forms.DataGridView();
-			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.servicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.quanLyGiatUiDataSet = new QuanLyTiemGiatUi.QuanLyGiatUiDataSet();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.radDelivery = new System.Windows.Forms.GroupBox();
-			this.radioButton2 = new System.Windows.Forms.RadioButton();
+			this.radDeliver = new System.Windows.Forms.RadioButton();
 			this.radAtStore = new System.Windows.Forms.RadioButton();
 			this.label13 = new System.Windows.Forms.Label();
-			this.button2 = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnCancel = new System.Windows.Forms.Button();
+			this.btnCreateOrder = new System.Windows.Forms.Button();
 			this.lblPrice = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
 			this.cboService = new System.Windows.Forms.ComboBox();
@@ -60,64 +56,93 @@
 			this.txtCusName = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.button3 = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
+			this.tabPending = new System.Windows.Forms.TabPage();
+			this.btnAcceptOrder = new System.Windows.Forms.Button();
 			this.panel3 = new System.Windows.Forms.Panel();
-			this.dataGridView2 = new System.Windows.Forms.DataGridView();
-			this.tabPage3 = new System.Windows.Forms.TabPage();
-			this.button5 = new System.Windows.Forms.Button();
+			this.gridPendingOrder = new System.Windows.Forms.DataGridView();
+			this.pendingOrderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+			this.quanLyGiatUiDataSet = new QuanLyTiemGiatUi.QuanLyGiatUiDataSet();
+			this.tabUnpaid = new System.Windows.Forms.TabPage();
+			this.btnPaid = new System.Windows.Forms.Button();
 			this.panel4 = new System.Windows.Forms.Panel();
-			this.dataGridView3 = new System.Windows.Forms.DataGridView();
+			this.gridUnpaidOrder = new System.Windows.Forms.DataGridView();
+			this.unpaidOrderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.quảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuOrder = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuServices = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStaff = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuLogout = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.servicesTableAdapter = new QuanLyTiemGiatUi.QuanLyGiatUiDataSetTableAdapters.ServicesTableAdapter();
-			this.tabControl1.SuspendLayout();
-			this.tabPage1.SuspendLayout();
+			this.unpaidOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.unpaidOrderTableAdapter = new QuanLyTiemGiatUi.QuanLyGiatUiDataSetTableAdapters.UnpaidOrderTableAdapter();
+			this.pendingOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.pendingOrderTableAdapter = new QuanLyTiemGiatUi.QuanLyGiatUiDataSetTableAdapters.PendingOrderTableAdapter();
+			this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.customerNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.phoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.addressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.orderNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.serviceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.weightDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.deliveryDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.orderNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.serviceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.parentTab.SuspendLayout();
+			this.tabMain.SuspendLayout();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridService)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.quanLyGiatUiDataSet)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.radDelivery.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numWeight)).BeginInit();
-			this.tabPage2.SuspendLayout();
+			this.tabPending.SuspendLayout();
 			this.panel3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-			this.tabPage3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.gridPendingOrder)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pendingOrderBindingSource1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.quanLyGiatUiDataSet)).BeginInit();
+			this.tabUnpaid.SuspendLayout();
 			this.panel4.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.gridUnpaidOrder)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.unpaidOrderBindingSource1)).BeginInit();
 			this.menuStrip1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.unpaidOrderBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pendingOrderBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// tabControl1
+			// parentTab
 			// 
-			this.tabControl1.Controls.Add(this.tabPage1);
-			this.tabControl1.Controls.Add(this.tabPage2);
-			this.tabControl1.Controls.Add(this.tabPage3);
-			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabControl1.Location = new System.Drawing.Point(0, 24);
-			this.tabControl1.Name = "tabControl1";
-			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(475, 420);
-			this.tabControl1.TabIndex = 0;
-			this.tabControl1.Tag = "";
+			this.parentTab.Controls.Add(this.tabMain);
+			this.parentTab.Controls.Add(this.tabPending);
+			this.parentTab.Controls.Add(this.tabUnpaid);
+			this.parentTab.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.parentTab.Location = new System.Drawing.Point(0, 24);
+			this.parentTab.Name = "parentTab";
+			this.parentTab.SelectedIndex = 0;
+			this.parentTab.Size = new System.Drawing.Size(475, 420);
+			this.parentTab.TabIndex = 0;
+			this.parentTab.Tag = "";
 			// 
-			// tabPage1
+			// tabMain
 			// 
-			this.tabPage1.Controls.Add(this.panel2);
-			this.tabPage1.Controls.Add(this.panel1);
-			this.tabPage1.Location = new System.Drawing.Point(4, 22);
-			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(467, 394);
-			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "Tạo phiếu giặt";
-			this.tabPage1.UseVisualStyleBackColor = true;
+			this.tabMain.Controls.Add(this.panel2);
+			this.tabMain.Controls.Add(this.panel1);
+			this.tabMain.Location = new System.Drawing.Point(4, 22);
+			this.tabMain.Name = "tabMain";
+			this.tabMain.Padding = new System.Windows.Forms.Padding(3);
+			this.tabMain.Size = new System.Drawing.Size(467, 394);
+			this.tabMain.TabIndex = 0;
+			this.tabMain.Text = "Tạo phiếu giặt";
+			this.tabMain.UseVisualStyleBackColor = true;
 			// 
 			// panel2
 			// 
@@ -135,47 +160,19 @@
 			this.gridService.AllowUserToAddRows = false;
 			this.gridService.AllowUserToDeleteRows = false;
 			this.gridService.AllowUserToResizeRows = false;
-			this.gridService.AutoGenerateColumns = false;
 			this.gridService.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.gridService.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
 			this.gridService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.gridService.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn});
-			this.gridService.DataSource = this.servicesBindingSource;
 			this.gridService.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.gridService.Location = new System.Drawing.Point(0, 20);
+			this.gridService.MultiSelect = false;
 			this.gridService.Name = "gridService";
 			this.gridService.ReadOnly = true;
 			this.gridService.RowHeadersVisible = false;
 			this.gridService.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.gridService.Size = new System.Drawing.Size(184, 368);
 			this.gridService.TabIndex = 1;
-			this.gridService.SelectionChanged += new System.EventHandler(this.gridService_SelectionChanged);
-			// 
-			// nameDataGridViewTextBoxColumn
-			// 
-			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-			this.nameDataGridViewTextBoxColumn.HeaderText = "Dịch vụ";
-			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-			this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// priceDataGridViewTextBoxColumn
-			// 
-			this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-			this.priceDataGridViewTextBoxColumn.HeaderText = "Đơn giá";
-			this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-			this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// servicesBindingSource
-			// 
-			this.servicesBindingSource.DataMember = "Services";
-			this.servicesBindingSource.DataSource = this.quanLyGiatUiDataSet;
-			// 
-			// quanLyGiatUiDataSet
-			// 
-			this.quanLyGiatUiDataSet.DataSetName = "QuanLyGiatUiDataSet";
-			this.quanLyGiatUiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			this.gridService.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridService_RowEnter);
 			// 
 			// label1
 			// 
@@ -191,8 +188,8 @@
 			this.panel1.BackColor = System.Drawing.Color.Silver;
 			this.panel1.Controls.Add(this.radDelivery);
 			this.panel1.Controls.Add(this.label13);
-			this.panel1.Controls.Add(this.button2);
-			this.panel1.Controls.Add(this.button1);
+			this.panel1.Controls.Add(this.btnCancel);
+			this.panel1.Controls.Add(this.btnCreateOrder);
 			this.panel1.Controls.Add(this.lblPrice);
 			this.panel1.Controls.Add(this.label10);
 			this.panel1.Controls.Add(this.cboService);
@@ -218,7 +215,7 @@
 			// radDelivery
 			// 
 			this.radDelivery.BackColor = System.Drawing.Color.Transparent;
-			this.radDelivery.Controls.Add(this.radioButton2);
+			this.radDelivery.Controls.Add(this.radDeliver);
 			this.radDelivery.Controls.Add(this.radAtStore);
 			this.radDelivery.Location = new System.Drawing.Point(30, 235);
 			this.radDelivery.Name = "radDelivery";
@@ -227,15 +224,16 @@
 			this.radDelivery.TabStop = false;
 			this.radDelivery.Text = "Hình thức nhận hàng";
 			// 
-			// radioButton2
+			// radDeliver
 			// 
-			this.radioButton2.AutoSize = true;
-			this.radioButton2.Location = new System.Drawing.Point(7, 43);
-			this.radioButton2.Name = "radioButton2";
-			this.radioButton2.Size = new System.Drawing.Size(171, 17);
-			this.radioButton2.TabIndex = 1;
-			this.radioButton2.Text = "Giao hàng tận nơi (Phí: 5000d)";
-			this.radioButton2.UseVisualStyleBackColor = true;
+			this.radDeliver.AutoSize = true;
+			this.radDeliver.Location = new System.Drawing.Point(7, 43);
+			this.radDeliver.Name = "radDeliver";
+			this.radDeliver.Size = new System.Drawing.Size(171, 17);
+			this.radDeliver.TabIndex = 1;
+			this.radDeliver.Text = "Giao hàng tận nơi (Phí: 5000d)";
+			this.radDeliver.UseVisualStyleBackColor = true;
+			this.radDeliver.CheckedChanged += new System.EventHandler(this.radDeliver_CheckedChanged);
 			// 
 			// radAtStore
 			// 
@@ -248,6 +246,7 @@
 			this.radAtStore.TabStop = true;
 			this.radAtStore.Text = "Nhận tại cửa hàng";
 			this.radAtStore.UseVisualStyleBackColor = true;
+			this.radAtStore.CheckedChanged += new System.EventHandler(this.radAtStore_CheckedChanged);
 			// 
 			// label13
 			// 
@@ -258,26 +257,28 @@
 			this.label13.TabIndex = 22;
 			this.label13.Text = "kg";
 			// 
-			// button2
+			// btnCancel
 			// 
-			this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-			this.button2.Location = new System.Drawing.Point(163, 349);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(75, 28);
-			this.button2.TabIndex = 21;
-			this.button2.Text = "Hủy bỏ";
-			this.button2.UseVisualStyleBackColor = true;
+			this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+			this.btnCancel.Location = new System.Drawing.Point(163, 349);
+			this.btnCancel.Name = "btnCancel";
+			this.btnCancel.Size = new System.Drawing.Size(75, 28);
+			this.btnCancel.TabIndex = 8;
+			this.btnCancel.Text = "Hủy bỏ";
+			this.btnCancel.UseVisualStyleBackColor = true;
+			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
-			// button1
+			// btnCreateOrder
 			// 
-			this.button1.AutoSize = true;
-			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-			this.button1.Location = new System.Drawing.Point(46, 349);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(99, 28);
-			this.button1.TabIndex = 20;
-			this.button1.Text = "Tạo phiếu giặt";
-			this.button1.UseVisualStyleBackColor = true;
+			this.btnCreateOrder.AutoSize = true;
+			this.btnCreateOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+			this.btnCreateOrder.Location = new System.Drawing.Point(46, 349);
+			this.btnCreateOrder.Name = "btnCreateOrder";
+			this.btnCreateOrder.Size = new System.Drawing.Size(99, 28);
+			this.btnCreateOrder.TabIndex = 7;
+			this.btnCreateOrder.Text = "Tạo phiếu giặt";
+			this.btnCreateOrder.UseVisualStyleBackColor = true;
+			this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
 			// 
 			// lblPrice
 			// 
@@ -302,13 +303,13 @@
 			// 
 			// cboService
 			// 
-			this.cboService.DataSource = this.quanLyGiatUiDataSet;
-			this.cboService.DisplayMember = "Services.Name";
+			this.cboService.DisplayMember = "Services.Price";
+			this.cboService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cboService.FormattingEnabled = true;
 			this.cboService.Location = new System.Drawing.Point(109, 172);
 			this.cboService.Name = "cboService";
 			this.cboService.Size = new System.Drawing.Size(121, 21);
-			this.cboService.TabIndex = 13;
+			this.cboService.TabIndex = 5;
 			this.cboService.ValueMember = "Services.Price";
 			this.cboService.SelectedIndexChanged += new System.EventHandler(this.cboService_SelectedIndexChanged);
 			// 
@@ -324,9 +325,11 @@
 			// txtPhoneNum
 			// 
 			this.txtPhoneNum.Location = new System.Drawing.Point(109, 74);
+			this.txtPhoneNum.MaxLength = 11;
 			this.txtPhoneNum.Name = "txtPhoneNum";
 			this.txtPhoneNum.Size = new System.Drawing.Size(145, 20);
-			this.txtPhoneNum.TabIndex = 11;
+			this.txtPhoneNum.TabIndex = 2;
+			this.txtPhoneNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneNum_KeyPress);
 			// 
 			// numWeight
 			// 
@@ -340,7 +343,12 @@
 			this.numWeight.Location = new System.Drawing.Point(109, 207);
 			this.numWeight.Name = "numWeight";
 			this.numWeight.Size = new System.Drawing.Size(70, 20);
-			this.numWeight.TabIndex = 10;
+			this.numWeight.TabIndex = 6;
+			this.numWeight.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
 			this.numWeight.ValueChanged += new System.EventHandler(this.numWeight_ValueChanged);
 			// 
 			// label7
@@ -355,9 +363,10 @@
 			// txtOrderName
 			// 
 			this.txtOrderName.Location = new System.Drawing.Point(109, 142);
+			this.txtOrderName.MaxLength = 100;
 			this.txtOrderName.Name = "txtOrderName";
 			this.txtOrderName.Size = new System.Drawing.Size(145, 20);
-			this.txtOrderName.TabIndex = 8;
+			this.txtOrderName.TabIndex = 4;
 			// 
 			// label6
 			// 
@@ -371,9 +380,10 @@
 			// txtAddress
 			// 
 			this.txtAddress.Location = new System.Drawing.Point(109, 107);
+			this.txtAddress.MaxLength = 200;
 			this.txtAddress.Name = "txtAddress";
 			this.txtAddress.Size = new System.Drawing.Size(145, 20);
-			this.txtAddress.TabIndex = 6;
+			this.txtAddress.TabIndex = 3;
 			// 
 			// label5
 			// 
@@ -396,9 +406,10 @@
 			// txtCusName
 			// 
 			this.txtCusName.Location = new System.Drawing.Point(109, 40);
+			this.txtCusName.MaxLength = 100;
 			this.txtCusName.Name = "txtCusName";
 			this.txtCusName.Size = new System.Drawing.Size(145, 20);
-			this.txtCusName.TabIndex = 2;
+			this.txtCusName.TabIndex = 1;
 			// 
 			// label3
 			// 
@@ -419,95 +430,145 @@
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Phiếu giặt ủi";
 			// 
-			// tabPage2
+			// tabPending
 			// 
-			this.tabPage2.Controls.Add(this.button3);
-			this.tabPage2.Controls.Add(this.button4);
-			this.tabPage2.Controls.Add(this.panel3);
-			this.tabPage2.Location = new System.Drawing.Point(4, 22);
-			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(467, 394);
-			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "Đơn hàng chờ giặt";
-			this.tabPage2.UseVisualStyleBackColor = true;
+			this.tabPending.Controls.Add(this.btnAcceptOrder);
+			this.tabPending.Controls.Add(this.panel3);
+			this.tabPending.Location = new System.Drawing.Point(4, 22);
+			this.tabPending.Name = "tabPending";
+			this.tabPending.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPending.Size = new System.Drawing.Size(467, 394);
+			this.tabPending.TabIndex = 1;
+			this.tabPending.Text = "Đơn hàng chờ giặt";
+			this.tabPending.UseVisualStyleBackColor = true;
+			this.tabPending.Enter += new System.EventHandler(this.tabPending_Enter);
 			// 
-			// button3
+			// btnAcceptOrder
 			// 
-			this.button3.AutoSize = true;
-			this.button3.Location = new System.Drawing.Point(120, 359);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(101, 26);
-			this.button3.TabIndex = 3;
-			this.button3.Text = "Xóa đơn hàng";
-			this.button3.UseVisualStyleBackColor = true;
-			// 
-			// button4
-			// 
-			this.button4.Location = new System.Drawing.Point(246, 359);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(91, 26);
-			this.button4.TabIndex = 2;
-			this.button4.Text = "Tiếp nhận";
-			this.button4.UseVisualStyleBackColor = true;
+			this.btnAcceptOrder.Location = new System.Drawing.Point(188, 359);
+			this.btnAcceptOrder.Name = "btnAcceptOrder";
+			this.btnAcceptOrder.Size = new System.Drawing.Size(91, 26);
+			this.btnAcceptOrder.TabIndex = 2;
+			this.btnAcceptOrder.Text = "Tiếp nhận";
+			this.btnAcceptOrder.UseVisualStyleBackColor = true;
+			this.btnAcceptOrder.Click += new System.EventHandler(this.btnAcceptOrder_Click);
 			// 
 			// panel3
 			// 
-			this.panel3.Controls.Add(this.dataGridView2);
+			this.panel3.Controls.Add(this.gridPendingOrder);
 			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel3.Location = new System.Drawing.Point(3, 3);
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(461, 348);
 			this.panel3.TabIndex = 0;
 			// 
-			// dataGridView2
+			// gridPendingOrder
 			// 
-			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-			this.dataGridView2.Name = "dataGridView2";
-			this.dataGridView2.Size = new System.Drawing.Size(461, 348);
-			this.dataGridView2.TabIndex = 0;
+			this.gridPendingOrder.AllowUserToResizeRows = false;
+			this.gridPendingOrder.AutoGenerateColumns = false;
+			this.gridPendingOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+			this.gridPendingOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.gridPendingOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn,
+            this.customerNameDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn,
+            this.phoneDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.orderNameDataGridViewTextBoxColumn,
+            this.serviceDataGridViewTextBoxColumn,
+            this.weightDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn,
+            this.dateDataGridViewTextBoxColumn});
+			this.gridPendingOrder.DataSource = this.pendingOrderBindingSource1;
+			this.gridPendingOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.gridPendingOrder.Location = new System.Drawing.Point(0, 0);
+			this.gridPendingOrder.MultiSelect = false;
+			this.gridPendingOrder.Name = "gridPendingOrder";
+			this.gridPendingOrder.ReadOnly = true;
+			this.gridPendingOrder.RowHeadersVisible = false;
+			this.gridPendingOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.gridPendingOrder.Size = new System.Drawing.Size(461, 348);
+			this.gridPendingOrder.TabIndex = 0;
+			this.gridPendingOrder.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPendingOrder_RowEnter);
 			// 
-			// tabPage3
+			// pendingOrderBindingSource1
 			// 
-			this.tabPage3.Controls.Add(this.button5);
-			this.tabPage3.Controls.Add(this.panel4);
-			this.tabPage3.Location = new System.Drawing.Point(4, 22);
-			this.tabPage3.Name = "tabPage3";
-			this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage3.Size = new System.Drawing.Size(467, 394);
-			this.tabPage3.TabIndex = 2;
-			this.tabPage3.Text = "Đơn hàng chờ nhận";
-			this.tabPage3.UseVisualStyleBackColor = true;
+			this.pendingOrderBindingSource1.DataMember = "PendingOrder";
+			this.pendingOrderBindingSource1.DataSource = this.quanLyGiatUiDataSet;
 			// 
-			// button5
+			// quanLyGiatUiDataSet
 			// 
-			this.button5.AutoSize = true;
-			this.button5.Location = new System.Drawing.Point(179, 361);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(102, 27);
-			this.button5.TabIndex = 1;
-			this.button5.Text = "Đã thanh toán";
-			this.button5.UseVisualStyleBackColor = true;
+			this.quanLyGiatUiDataSet.DataSetName = "QuanLyGiatUiDataSet";
+			this.quanLyGiatUiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// tabUnpaid
+			// 
+			this.tabUnpaid.Controls.Add(this.btnPaid);
+			this.tabUnpaid.Controls.Add(this.panel4);
+			this.tabUnpaid.Location = new System.Drawing.Point(4, 22);
+			this.tabUnpaid.Name = "tabUnpaid";
+			this.tabUnpaid.Padding = new System.Windows.Forms.Padding(3);
+			this.tabUnpaid.Size = new System.Drawing.Size(467, 394);
+			this.tabUnpaid.TabIndex = 2;
+			this.tabUnpaid.Text = "Đơn hàng chờ nhận";
+			this.tabUnpaid.UseVisualStyleBackColor = true;
+			this.tabUnpaid.Enter += new System.EventHandler(this.tabUnpaid_Enter);
+			// 
+			// btnPaid
+			// 
+			this.btnPaid.AutoSize = true;
+			this.btnPaid.Location = new System.Drawing.Point(179, 361);
+			this.btnPaid.Name = "btnPaid";
+			this.btnPaid.Size = new System.Drawing.Size(102, 27);
+			this.btnPaid.TabIndex = 1;
+			this.btnPaid.Text = "Đã thanh toán";
+			this.btnPaid.UseVisualStyleBackColor = true;
+			this.btnPaid.Click += new System.EventHandler(this.btnPaid_Click);
 			// 
 			// panel4
 			// 
-			this.panel4.Controls.Add(this.dataGridView3);
+			this.panel4.Controls.Add(this.gridUnpaidOrder);
 			this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel4.Location = new System.Drawing.Point(3, 3);
 			this.panel4.Name = "panel4";
 			this.panel4.Size = new System.Drawing.Size(461, 352);
 			this.panel4.TabIndex = 0;
 			// 
-			// dataGridView3
+			// gridUnpaidOrder
 			// 
-			this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-			this.dataGridView3.Name = "dataGridView3";
-			this.dataGridView3.Size = new System.Drawing.Size(461, 352);
-			this.dataGridView3.TabIndex = 0;
+			this.gridUnpaidOrder.AllowUserToResizeRows = false;
+			this.gridUnpaidOrder.AutoGenerateColumns = false;
+			this.gridUnpaidOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+			this.gridUnpaidOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.gridUnpaidOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn1,
+            this.customerNameDataGridViewTextBoxColumn1,
+            this.statusDataGridViewTextBoxColumn1,
+            this.phoneDataGridViewTextBoxColumn1,
+            this.addressDataGridViewTextBoxColumn1,
+            this.orderNameDataGridViewTextBoxColumn1,
+            this.serviceDataGridViewTextBoxColumn1,
+            this.weightDataGridViewTextBoxColumn1,
+            this.deliveryDataGridViewCheckBoxColumn1,
+            this.priceDataGridViewTextBoxColumn1,
+            this.dateDataGridViewTextBoxColumn1});
+			this.gridUnpaidOrder.DataSource = this.unpaidOrderBindingSource1;
+			this.gridUnpaidOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.gridUnpaidOrder.Location = new System.Drawing.Point(0, 0);
+			this.gridUnpaidOrder.MultiSelect = false;
+			this.gridUnpaidOrder.Name = "gridUnpaidOrder";
+			this.gridUnpaidOrder.ReadOnly = true;
+			this.gridUnpaidOrder.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			this.gridUnpaidOrder.RowHeadersVisible = false;
+			this.gridUnpaidOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.gridUnpaidOrder.Size = new System.Drawing.Size(461, 352);
+			this.gridUnpaidOrder.TabIndex = 0;
+			this.gridUnpaidOrder.SelectionChanged += new System.EventHandler(this.gridUnpaidOrder_SelectionChanged);
+			// 
+			// unpaidOrderBindingSource1
+			// 
+			this.unpaidOrderBindingSource1.DataMember = "UnpaidOrder";
+			this.unpaidOrderBindingSource1.DataSource = this.quanLyGiatUiDataSet;
 			// 
 			// quảnLýToolStripMenuItem
 			// 
@@ -522,7 +583,8 @@
 			// menuOrder
 			// 
 			this.menuOrder.Name = "menuOrder";
-			this.menuOrder.Size = new System.Drawing.Size(197, 22);
+			this.menuOrder.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+			this.menuOrder.Size = new System.Drawing.Size(213, 22);
 			this.menuOrder.Text = "Quản lý đơn hàng";
 			this.menuOrder.Click += new System.EventHandler(this.menuOrder_Click);
 			// 
@@ -530,14 +592,15 @@
 			// 
 			this.menuServices.Name = "menuServices";
 			this.menuServices.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-			this.menuServices.Size = new System.Drawing.Size(197, 22);
+			this.menuServices.Size = new System.Drawing.Size(213, 22);
 			this.menuServices.Text = "Quản lý dịch vụ";
 			this.menuServices.Click += new System.EventHandler(this.menuServices_Click);
 			// 
 			// menuStaff
 			// 
 			this.menuStaff.Name = "menuStaff";
-			this.menuStaff.Size = new System.Drawing.Size(197, 22);
+			this.menuStaff.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+			this.menuStaff.Size = new System.Drawing.Size(213, 22);
 			this.menuStaff.Text = "Quản lý nhân viên";
 			this.menuStaff.Click += new System.EventHandler(this.menuStaff_Click);
 			// 
@@ -559,16 +622,188 @@
 			this.menuStrip1.TabIndex = 1;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
-			// servicesTableAdapter
+			// unpaidOrderTableAdapter
 			// 
-			this.servicesTableAdapter.ClearBeforeFill = true;
+			this.unpaidOrderTableAdapter.ClearBeforeFill = true;
+			// 
+			// pendingOrderTableAdapter
+			// 
+			this.pendingOrderTableAdapter.ClearBeforeFill = true;
+			// 
+			// iDDataGridViewTextBoxColumn1
+			// 
+			this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+			this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+			this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+			this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
+			this.iDDataGridViewTextBoxColumn1.Width = 43;
+			// 
+			// customerNameDataGridViewTextBoxColumn1
+			// 
+			this.customerNameDataGridViewTextBoxColumn1.DataPropertyName = "CustomerName";
+			this.customerNameDataGridViewTextBoxColumn1.HeaderText = "Khách hàng";
+			this.customerNameDataGridViewTextBoxColumn1.Name = "customerNameDataGridViewTextBoxColumn1";
+			this.customerNameDataGridViewTextBoxColumn1.ReadOnly = true;
+			this.customerNameDataGridViewTextBoxColumn1.Width = 90;
+			// 
+			// statusDataGridViewTextBoxColumn1
+			// 
+			this.statusDataGridViewTextBoxColumn1.DataPropertyName = "Status";
+			this.statusDataGridViewTextBoxColumn1.HeaderText = "Trạng thái";
+			this.statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
+			this.statusDataGridViewTextBoxColumn1.ReadOnly = true;
+			this.statusDataGridViewTextBoxColumn1.Width = 80;
+			// 
+			// phoneDataGridViewTextBoxColumn1
+			// 
+			this.phoneDataGridViewTextBoxColumn1.DataPropertyName = "Phone";
+			this.phoneDataGridViewTextBoxColumn1.HeaderText = "SDT";
+			this.phoneDataGridViewTextBoxColumn1.Name = "phoneDataGridViewTextBoxColumn1";
+			this.phoneDataGridViewTextBoxColumn1.ReadOnly = true;
+			this.phoneDataGridViewTextBoxColumn1.Width = 54;
+			// 
+			// addressDataGridViewTextBoxColumn1
+			// 
+			this.addressDataGridViewTextBoxColumn1.DataPropertyName = "Address";
+			this.addressDataGridViewTextBoxColumn1.HeaderText = "Đ.Chỉ";
+			this.addressDataGridViewTextBoxColumn1.Name = "addressDataGridViewTextBoxColumn1";
+			this.addressDataGridViewTextBoxColumn1.ReadOnly = true;
+			this.addressDataGridViewTextBoxColumn1.Width = 58;
+			// 
+			// orderNameDataGridViewTextBoxColumn1
+			// 
+			this.orderNameDataGridViewTextBoxColumn1.DataPropertyName = "OrderName";
+			this.orderNameDataGridViewTextBoxColumn1.HeaderText = "Loại hàng";
+			this.orderNameDataGridViewTextBoxColumn1.Name = "orderNameDataGridViewTextBoxColumn1";
+			this.orderNameDataGridViewTextBoxColumn1.ReadOnly = true;
+			this.orderNameDataGridViewTextBoxColumn1.Width = 79;
+			// 
+			// serviceDataGridViewTextBoxColumn1
+			// 
+			this.serviceDataGridViewTextBoxColumn1.DataPropertyName = "Service";
+			this.serviceDataGridViewTextBoxColumn1.HeaderText = "Dịch vụ";
+			this.serviceDataGridViewTextBoxColumn1.Name = "serviceDataGridViewTextBoxColumn1";
+			this.serviceDataGridViewTextBoxColumn1.ReadOnly = true;
+			this.serviceDataGridViewTextBoxColumn1.Width = 69;
+			// 
+			// weightDataGridViewTextBoxColumn1
+			// 
+			this.weightDataGridViewTextBoxColumn1.DataPropertyName = "Weight";
+			this.weightDataGridViewTextBoxColumn1.HeaderText = "K.Lượng";
+			this.weightDataGridViewTextBoxColumn1.Name = "weightDataGridViewTextBoxColumn1";
+			this.weightDataGridViewTextBoxColumn1.ReadOnly = true;
+			this.weightDataGridViewTextBoxColumn1.Width = 72;
+			// 
+			// deliveryDataGridViewCheckBoxColumn1
+			// 
+			this.deliveryDataGridViewCheckBoxColumn1.DataPropertyName = "Delivery";
+			this.deliveryDataGridViewCheckBoxColumn1.HeaderText = "Giao hàng";
+			this.deliveryDataGridViewCheckBoxColumn1.Name = "deliveryDataGridViewCheckBoxColumn1";
+			this.deliveryDataGridViewCheckBoxColumn1.ReadOnly = true;
+			this.deliveryDataGridViewCheckBoxColumn1.Width = 62;
+			// 
+			// priceDataGridViewTextBoxColumn1
+			// 
+			this.priceDataGridViewTextBoxColumn1.DataPropertyName = "Price";
+			this.priceDataGridViewTextBoxColumn1.HeaderText = "Chi phí";
+			this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
+			this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
+			this.priceDataGridViewTextBoxColumn1.Width = 66;
+			// 
+			// dateDataGridViewTextBoxColumn1
+			// 
+			this.dateDataGridViewTextBoxColumn1.DataPropertyName = "Date";
+			this.dateDataGridViewTextBoxColumn1.HeaderText = "Ngày nhận";
+			this.dateDataGridViewTextBoxColumn1.Name = "dateDataGridViewTextBoxColumn1";
+			this.dateDataGridViewTextBoxColumn1.ReadOnly = true;
+			this.dateDataGridViewTextBoxColumn1.Width = 84;
+			// 
+			// iDDataGridViewTextBoxColumn
+			// 
+			this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+			this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+			this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+			this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+			this.iDDataGridViewTextBoxColumn.Width = 43;
+			// 
+			// customerNameDataGridViewTextBoxColumn
+			// 
+			this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
+			this.customerNameDataGridViewTextBoxColumn.HeaderText = "Khách hàng";
+			this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
+			this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
+			this.customerNameDataGridViewTextBoxColumn.Width = 90;
+			// 
+			// statusDataGridViewTextBoxColumn
+			// 
+			this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+			this.statusDataGridViewTextBoxColumn.HeaderText = "Trạng thái";
+			this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+			this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+			this.statusDataGridViewTextBoxColumn.Width = 80;
+			// 
+			// phoneDataGridViewTextBoxColumn
+			// 
+			this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+			this.phoneDataGridViewTextBoxColumn.HeaderText = "SDT";
+			this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+			this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
+			this.phoneDataGridViewTextBoxColumn.Width = 54;
+			// 
+			// addressDataGridViewTextBoxColumn
+			// 
+			this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+			this.addressDataGridViewTextBoxColumn.HeaderText = "Địa chỉ";
+			this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+			this.addressDataGridViewTextBoxColumn.ReadOnly = true;
+			this.addressDataGridViewTextBoxColumn.Width = 65;
+			// 
+			// orderNameDataGridViewTextBoxColumn
+			// 
+			this.orderNameDataGridViewTextBoxColumn.DataPropertyName = "OrderName";
+			this.orderNameDataGridViewTextBoxColumn.HeaderText = "Loại hàng";
+			this.orderNameDataGridViewTextBoxColumn.Name = "orderNameDataGridViewTextBoxColumn";
+			this.orderNameDataGridViewTextBoxColumn.ReadOnly = true;
+			this.orderNameDataGridViewTextBoxColumn.Width = 79;
+			// 
+			// serviceDataGridViewTextBoxColumn
+			// 
+			this.serviceDataGridViewTextBoxColumn.DataPropertyName = "Service";
+			this.serviceDataGridViewTextBoxColumn.HeaderText = "Dịch vụ";
+			this.serviceDataGridViewTextBoxColumn.Name = "serviceDataGridViewTextBoxColumn";
+			this.serviceDataGridViewTextBoxColumn.ReadOnly = true;
+			this.serviceDataGridViewTextBoxColumn.Width = 69;
+			// 
+			// weightDataGridViewTextBoxColumn
+			// 
+			this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
+			this.weightDataGridViewTextBoxColumn.HeaderText = "K.Lượng";
+			this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
+			this.weightDataGridViewTextBoxColumn.ReadOnly = true;
+			this.weightDataGridViewTextBoxColumn.Width = 72;
+			// 
+			// priceDataGridViewTextBoxColumn
+			// 
+			this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+			this.priceDataGridViewTextBoxColumn.HeaderText = "Chi phí";
+			this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+			this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+			this.priceDataGridViewTextBoxColumn.Width = 66;
+			// 
+			// dateDataGridViewTextBoxColumn
+			// 
+			this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+			this.dateDataGridViewTextBoxColumn.HeaderText = "Ngày nhận";
+			this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+			this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+			this.dateDataGridViewTextBoxColumn.Width = 84;
 			// 
 			// frmMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(475, 444);
-			this.Controls.Add(this.tabControl1);
+			this.Controls.Add(this.parentTab);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "frmMain";
@@ -576,28 +811,30 @@
 			this.Text = "Phần mềm quản lý giặt ủi";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
 			this.Load += new System.EventHandler(this.frmMain_Load);
-			this.tabControl1.ResumeLayout(false);
-			this.tabPage1.ResumeLayout(false);
+			this.parentTab.ResumeLayout(false);
+			this.tabMain.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridService)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.quanLyGiatUiDataSet)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.radDelivery.ResumeLayout(false);
 			this.radDelivery.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numWeight)).EndInit();
-			this.tabPage2.ResumeLayout(false);
-			this.tabPage2.PerformLayout();
+			this.tabPending.ResumeLayout(false);
 			this.panel3.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-			this.tabPage3.ResumeLayout(false);
-			this.tabPage3.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.gridPendingOrder)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pendingOrderBindingSource1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.quanLyGiatUiDataSet)).EndInit();
+			this.tabUnpaid.ResumeLayout(false);
+			this.tabUnpaid.PerformLayout();
 			this.panel4.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.gridUnpaidOrder)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.unpaidOrderBindingSource1)).EndInit();
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.unpaidOrderBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pendingOrderBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -605,10 +842,10 @@
 
 		#endregion
 
-		private System.Windows.Forms.TabControl tabControl1;
-		private System.Windows.Forms.TabPage tabPage1;
-		private System.Windows.Forms.TabPage tabPage2;
-		private System.Windows.Forms.TabPage tabPage3;
+		private System.Windows.Forms.TabControl parentTab;
+		private System.Windows.Forms.TabPage tabMain;
+		private System.Windows.Forms.TabPage tabPending;
+		private System.Windows.Forms.TabPage tabUnpaid;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.DataGridView gridService;
 		private System.Windows.Forms.Label label1;
@@ -635,22 +872,44 @@
 		private System.Windows.Forms.ToolStripMenuItem menuLogout;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnCancel;
+		private System.Windows.Forms.Button btnCreateOrder;
 		private System.Windows.Forms.GroupBox radDelivery;
-		private System.Windows.Forms.RadioButton radioButton2;
+		private System.Windows.Forms.RadioButton radDeliver;
 		private System.Windows.Forms.RadioButton radAtStore;
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Button btnAcceptOrder;
 		private System.Windows.Forms.Panel panel3;
-		private System.Windows.Forms.DataGridView dataGridView2;
-		private System.Windows.Forms.Button button5;
+		private System.Windows.Forms.DataGridView gridPendingOrder;
+		private System.Windows.Forms.Button btnPaid;
 		private System.Windows.Forms.Panel panel4;
-		private System.Windows.Forms.DataGridView dataGridView3;
+		private System.Windows.Forms.DataGridView gridUnpaidOrder;
+		private System.Windows.Forms.BindingSource unpaidOrderBindingSource;
+		private QuanLyGiatUiDataSetTableAdapters.UnpaidOrderTableAdapter unpaidOrderTableAdapter;
+		private System.Windows.Forms.BindingSource pendingOrderBindingSource;
 		private QuanLyGiatUiDataSet quanLyGiatUiDataSet;
-		private System.Windows.Forms.BindingSource servicesBindingSource;
-		private QuanLyGiatUiDataSetTableAdapters.ServicesTableAdapter servicesTableAdapter;
-		private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+		private System.Windows.Forms.BindingSource pendingOrderBindingSource1;
+		private QuanLyGiatUiDataSetTableAdapters.PendingOrderTableAdapter pendingOrderTableAdapter;
+		private System.Windows.Forms.BindingSource unpaidOrderBindingSource1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn orderNameDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn serviceDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn orderNameDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn serviceDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn deliveryDataGridViewCheckBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn1;
 	}
 }

@@ -42,8 +42,8 @@ namespace QuanLyTiemGiatUi.DataAccess
 				return dataTable;
 			}
 		}
-		
-		public int ExercuteNonQuery(String sql)
+
+		public int ExercuteNonQuery( String sql )
 		{
 			using (SqlConnection conn = new SqlConnection(conectionString))
 			{
@@ -52,25 +52,55 @@ namespace QuanLyTiemGiatUi.DataAccess
 				return cmd.ExecuteNonQuery();
 			}
 		}
+
 		public DataTable GetAllServices()
 		{
 			DataTable dtService = new DataTable();
 			dtService = ExercuteQuery("SELECT * FROM Services");
 			return dtService;
 		}
-		public void InsertService(string name, decimal price)
+
+		public void InsertService( string name, decimal price )
 		{
-			string sql = "INSERT INTO Services VALUES (N'" + name + "', " + price + ")";
-			ExercuteQuery(sql);
-		}
-		public void UpdateService(int id, string name, decimal price)
-		{
-			string sql = "UPDATE Services SET Name = N'"+ name +"', Price ="+ price +" WHERE STT = " + id;
+			string sql = "INSERT INTO Services (Name, Price) VALUES (N'" + name + "', " + price + ")";
 			ExercuteNonQuery(sql);
 		}
-		public void DeleteService(int id)
+
+		public void UpdateService( int id, string name, decimal price )
+		{
+			string sql = "UPDATE Services SET Name = N'" + name + "', Price = " + price + " WHERE STT = " + id;
+			ExercuteNonQuery(sql);
+		}
+
+		public void DeleteService( int id )
 		{
 			string sql = "DELETE FROM Services WHERE STT = " + id.ToString();
+			ExercuteNonQuery(sql);
+		}
+
+		public void InsertOrder( string cusName, string phone, string address, string orderName, string service, float weight, int delivery, decimal price )
+		{
+			string sql = "INSERT INTO Orders (CustomerName, Phone, Address, OrderName, Service, Weight, Delivery, Price, Status)" +
+				"VALUES (N'" + cusName + "', '" + phone + "', N'" + address + "', N'" + orderName + "', N'" + service + "', " +
+				weight + ", " + delivery + ", " + price + ", N'Chờ giặt')";
+			ExercuteNonQuery(sql);
+		}
+
+		public void DeleteOrder( int id )
+		{
+			string sql = "DELETE FROM Orders WHERE ID = " + id;
+			ExercuteNonQuery(sql);
+		}
+
+		public void AcceptOrder( int id )
+		{
+			string sql = "UPDATE Orders SET Status = N'Chưa thanh toán' WHERE ID = " + id;
+			ExercuteNonQuery(sql);
+		}
+
+		public void SetPaidOrder( int id )
+		{
+			string sql = "UPDATE Orders SET Status = N'Đã thanh toán' WHERE ID = " + id;
 			ExercuteNonQuery(sql);
 		}
 	}
