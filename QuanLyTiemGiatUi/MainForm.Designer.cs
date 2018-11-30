@@ -77,27 +77,27 @@
 			this.unpaidOrderTableAdapter = new QuanLyTiemGiatUi.QuanLyGiatUiDataSetTableAdapters.UnpaidOrderTableAdapter();
 			this.pendingOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.pendingOrderTableAdapter = new QuanLyTiemGiatUi.QuanLyGiatUiDataSetTableAdapters.PendingOrderTableAdapter();
+			this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.orderNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.serviceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.customerNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.phoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.addressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.orderNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.serviceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.weightDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.deliveryDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.orderNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.serviceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.servicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.servicesTableAdapter = new QuanLyTiemGiatUi.QuanLyGiatUiDataSetTableAdapters.ServicesTableAdapter();
+			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.priceDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.parentTab.SuspendLayout();
 			this.tabMain.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -117,6 +117,7 @@
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.unpaidOrderBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pendingOrderBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// parentTab
@@ -160,9 +161,14 @@
 			this.gridService.AllowUserToAddRows = false;
 			this.gridService.AllowUserToDeleteRows = false;
 			this.gridService.AllowUserToResizeRows = false;
+			this.gridService.AutoGenerateColumns = false;
 			this.gridService.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.gridService.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
 			this.gridService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.gridService.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn2});
+			this.gridService.DataSource = this.servicesBindingSource;
 			this.gridService.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.gridService.Location = new System.Drawing.Point(0, 20);
 			this.gridService.MultiSelect = false;
@@ -472,8 +478,6 @@
             this.iDDataGridViewTextBoxColumn,
             this.customerNameDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn,
-            this.phoneDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
             this.orderNameDataGridViewTextBoxColumn,
             this.serviceDataGridViewTextBoxColumn,
             this.weightDataGridViewTextBoxColumn,
@@ -544,8 +548,6 @@
             this.iDDataGridViewTextBoxColumn1,
             this.customerNameDataGridViewTextBoxColumn1,
             this.statusDataGridViewTextBoxColumn1,
-            this.phoneDataGridViewTextBoxColumn1,
-            this.addressDataGridViewTextBoxColumn1,
             this.orderNameDataGridViewTextBoxColumn1,
             this.serviceDataGridViewTextBoxColumn1,
             this.weightDataGridViewTextBoxColumn1,
@@ -630,6 +632,70 @@
 			// 
 			this.pendingOrderTableAdapter.ClearBeforeFill = true;
 			// 
+			// iDDataGridViewTextBoxColumn
+			// 
+			this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+			this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+			this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+			this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+			this.iDDataGridViewTextBoxColumn.Width = 43;
+			// 
+			// customerNameDataGridViewTextBoxColumn
+			// 
+			this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
+			this.customerNameDataGridViewTextBoxColumn.HeaderText = "Khách hàng";
+			this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
+			this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
+			this.customerNameDataGridViewTextBoxColumn.Width = 90;
+			// 
+			// statusDataGridViewTextBoxColumn
+			// 
+			this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+			this.statusDataGridViewTextBoxColumn.HeaderText = "Trạng thái";
+			this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+			this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+			this.statusDataGridViewTextBoxColumn.Width = 80;
+			// 
+			// orderNameDataGridViewTextBoxColumn
+			// 
+			this.orderNameDataGridViewTextBoxColumn.DataPropertyName = "OrderName";
+			this.orderNameDataGridViewTextBoxColumn.HeaderText = "Loại hàng";
+			this.orderNameDataGridViewTextBoxColumn.Name = "orderNameDataGridViewTextBoxColumn";
+			this.orderNameDataGridViewTextBoxColumn.ReadOnly = true;
+			this.orderNameDataGridViewTextBoxColumn.Width = 79;
+			// 
+			// serviceDataGridViewTextBoxColumn
+			// 
+			this.serviceDataGridViewTextBoxColumn.DataPropertyName = "Service";
+			this.serviceDataGridViewTextBoxColumn.HeaderText = "Dịch vụ";
+			this.serviceDataGridViewTextBoxColumn.Name = "serviceDataGridViewTextBoxColumn";
+			this.serviceDataGridViewTextBoxColumn.ReadOnly = true;
+			this.serviceDataGridViewTextBoxColumn.Width = 69;
+			// 
+			// weightDataGridViewTextBoxColumn
+			// 
+			this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
+			this.weightDataGridViewTextBoxColumn.HeaderText = "K.Lượng";
+			this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
+			this.weightDataGridViewTextBoxColumn.ReadOnly = true;
+			this.weightDataGridViewTextBoxColumn.Width = 72;
+			// 
+			// priceDataGridViewTextBoxColumn
+			// 
+			this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+			this.priceDataGridViewTextBoxColumn.HeaderText = "Chi phí";
+			this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+			this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+			this.priceDataGridViewTextBoxColumn.Width = 66;
+			// 
+			// dateDataGridViewTextBoxColumn
+			// 
+			this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+			this.dateDataGridViewTextBoxColumn.HeaderText = "Ngày nhận";
+			this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+			this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+			this.dateDataGridViewTextBoxColumn.Width = 84;
+			// 
 			// iDDataGridViewTextBoxColumn1
 			// 
 			this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
@@ -653,22 +719,6 @@
 			this.statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
 			this.statusDataGridViewTextBoxColumn1.ReadOnly = true;
 			this.statusDataGridViewTextBoxColumn1.Width = 80;
-			// 
-			// phoneDataGridViewTextBoxColumn1
-			// 
-			this.phoneDataGridViewTextBoxColumn1.DataPropertyName = "Phone";
-			this.phoneDataGridViewTextBoxColumn1.HeaderText = "SDT";
-			this.phoneDataGridViewTextBoxColumn1.Name = "phoneDataGridViewTextBoxColumn1";
-			this.phoneDataGridViewTextBoxColumn1.ReadOnly = true;
-			this.phoneDataGridViewTextBoxColumn1.Width = 54;
-			// 
-			// addressDataGridViewTextBoxColumn1
-			// 
-			this.addressDataGridViewTextBoxColumn1.DataPropertyName = "Address";
-			this.addressDataGridViewTextBoxColumn1.HeaderText = "Đ.Chỉ";
-			this.addressDataGridViewTextBoxColumn1.Name = "addressDataGridViewTextBoxColumn1";
-			this.addressDataGridViewTextBoxColumn1.ReadOnly = true;
-			this.addressDataGridViewTextBoxColumn1.Width = 58;
 			// 
 			// orderNameDataGridViewTextBoxColumn1
 			// 
@@ -718,85 +768,28 @@
 			this.dateDataGridViewTextBoxColumn1.ReadOnly = true;
 			this.dateDataGridViewTextBoxColumn1.Width = 84;
 			// 
-			// iDDataGridViewTextBoxColumn
+			// servicesBindingSource
 			// 
-			this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-			this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-			this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-			this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-			this.iDDataGridViewTextBoxColumn.Width = 43;
+			this.servicesBindingSource.DataMember = "Services";
+			this.servicesBindingSource.DataSource = this.quanLyGiatUiDataSet;
 			// 
-			// customerNameDataGridViewTextBoxColumn
+			// servicesTableAdapter
 			// 
-			this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
-			this.customerNameDataGridViewTextBoxColumn.HeaderText = "Khách hàng";
-			this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
-			this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
-			this.customerNameDataGridViewTextBoxColumn.Width = 90;
+			this.servicesTableAdapter.ClearBeforeFill = true;
 			// 
-			// statusDataGridViewTextBoxColumn
+			// nameDataGridViewTextBoxColumn
 			// 
-			this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-			this.statusDataGridViewTextBoxColumn.HeaderText = "Trạng thái";
-			this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-			this.statusDataGridViewTextBoxColumn.ReadOnly = true;
-			this.statusDataGridViewTextBoxColumn.Width = 80;
+			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+			this.nameDataGridViewTextBoxColumn.HeaderText = "Tên dịch vụ";
+			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+			this.nameDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
-			// phoneDataGridViewTextBoxColumn
+			// priceDataGridViewTextBoxColumn2
 			// 
-			this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-			this.phoneDataGridViewTextBoxColumn.HeaderText = "SDT";
-			this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-			this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
-			this.phoneDataGridViewTextBoxColumn.Width = 54;
-			// 
-			// addressDataGridViewTextBoxColumn
-			// 
-			this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-			this.addressDataGridViewTextBoxColumn.HeaderText = "Địa chỉ";
-			this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-			this.addressDataGridViewTextBoxColumn.ReadOnly = true;
-			this.addressDataGridViewTextBoxColumn.Width = 65;
-			// 
-			// orderNameDataGridViewTextBoxColumn
-			// 
-			this.orderNameDataGridViewTextBoxColumn.DataPropertyName = "OrderName";
-			this.orderNameDataGridViewTextBoxColumn.HeaderText = "Loại hàng";
-			this.orderNameDataGridViewTextBoxColumn.Name = "orderNameDataGridViewTextBoxColumn";
-			this.orderNameDataGridViewTextBoxColumn.ReadOnly = true;
-			this.orderNameDataGridViewTextBoxColumn.Width = 79;
-			// 
-			// serviceDataGridViewTextBoxColumn
-			// 
-			this.serviceDataGridViewTextBoxColumn.DataPropertyName = "Service";
-			this.serviceDataGridViewTextBoxColumn.HeaderText = "Dịch vụ";
-			this.serviceDataGridViewTextBoxColumn.Name = "serviceDataGridViewTextBoxColumn";
-			this.serviceDataGridViewTextBoxColumn.ReadOnly = true;
-			this.serviceDataGridViewTextBoxColumn.Width = 69;
-			// 
-			// weightDataGridViewTextBoxColumn
-			// 
-			this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-			this.weightDataGridViewTextBoxColumn.HeaderText = "K.Lượng";
-			this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
-			this.weightDataGridViewTextBoxColumn.ReadOnly = true;
-			this.weightDataGridViewTextBoxColumn.Width = 72;
-			// 
-			// priceDataGridViewTextBoxColumn
-			// 
-			this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-			this.priceDataGridViewTextBoxColumn.HeaderText = "Chi phí";
-			this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-			this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-			this.priceDataGridViewTextBoxColumn.Width = 66;
-			// 
-			// dateDataGridViewTextBoxColumn
-			// 
-			this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-			this.dateDataGridViewTextBoxColumn.HeaderText = "Ngày nhận";
-			this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-			this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-			this.dateDataGridViewTextBoxColumn.Width = 84;
+			this.priceDataGridViewTextBoxColumn2.DataPropertyName = "Price";
+			this.priceDataGridViewTextBoxColumn2.HeaderText = "Đơn giá";
+			this.priceDataGridViewTextBoxColumn2.Name = "priceDataGridViewTextBoxColumn2";
+			this.priceDataGridViewTextBoxColumn2.ReadOnly = true;
 			// 
 			// frmMain
 			// 
@@ -835,6 +828,7 @@
 			this.menuStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.unpaidOrderBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pendingOrderBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -893,8 +887,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn orderNameDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn serviceDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
@@ -903,13 +895,15 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn orderNameDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn serviceDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn deliveryDataGridViewCheckBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.BindingSource servicesBindingSource;
+		private QuanLyGiatUiDataSetTableAdapters.ServicesTableAdapter servicesTableAdapter;
+		private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn2;
 	}
 }

@@ -82,6 +82,8 @@ namespace QuanLyTiemGiatUi
 
 		private void frmMain_Load( object sender, EventArgs e )
 		{
+			// TODO: This line of code loads data into the 'quanLyGiatUiDataSet.Services' table. You can move, or remove it, as needed.
+			this.servicesTableAdapter.Fill(this.quanLyGiatUiDataSet.Services);
 			// TODO: This line of code loads data into the 'quanLyGiatUiDataSet.UnpaidOrder' table. You can move, or remove it, as needed.
 			this.unpaidOrderTableAdapter.Fill(this.quanLyGiatUiDataSet.UnpaidOrder);
 			// TODO: This line of code loads data into the 'quanLyGiatUiDataSet.PendingOrder' table. You can move, or remove it, as needed.

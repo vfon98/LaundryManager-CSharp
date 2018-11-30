@@ -43,15 +43,18 @@ namespace QuanLyTiemGiatUi.DataAccess
 			}
 		}
 
-		public int ExercuteNonQuery( String sql )
+		public void ExercuteNonQuery( String sql )
 		{
 			using (SqlConnection conn = new SqlConnection(conectionString))
 			{
 				conn.Open();
 				cmd = new SqlCommand(sql, conn);
-				return cmd.ExecuteNonQuery();
+				cmd.ExecuteNonQuery();
+				conn.Close();
 			}
 		}
+
+		#region ServiceManagement
 
 		public DataTable GetAllServices()
 		{
@@ -62,7 +65,8 @@ namespace QuanLyTiemGiatUi.DataAccess
 
 		public void InsertService( string name, decimal price )
 		{
-			string sql = "INSERT INTO Services (Name, Price) VALUES (N'" + name + "', " + price + ")";
+			string sql = "INSERT INTO Services VALUES (N'" + name + "', " + price + ")";
+			System.Windows.Forms.MessageBox.Show(sql);
 			ExercuteNonQuery(sql);
 		}
 
@@ -77,6 +81,10 @@ namespace QuanLyTiemGiatUi.DataAccess
 			string sql = "DELETE FROM Services WHERE STT = " + id.ToString();
 			ExercuteNonQuery(sql);
 		}
+
+		#endregion
+
+		#region OrderManagement
 
 		public void InsertOrder( string cusName, string phone, string address, string orderName, string service, float weight, int delivery, decimal price )
 		{
@@ -103,5 +111,29 @@ namespace QuanLyTiemGiatUi.DataAccess
 			string sql = "UPDATE Orders SET Status = N'Đã thanh toán' WHERE ID = " + id;
 			ExercuteNonQuery(sql);
 		}
+
+		#endregion
+
+		#region StaffManagement
+
+		public void InsertStaff( string name, string address, string phone, string position )
+		{
+			string sql = "INSERT INTO Staff VALUES (N'" + name + "', N'" + address + "', N'" + phone + "', N'" + position + "')";
+			ExercuteNonQuery(sql);
+		}
+
+		public void UpdateStaff( int id, string name, string address, string phone, string position )
+		{
+			string sql = "UPDATE Staff SET Name=N'" + name + "', Address=N'" + address + "', Phone=N'" + phone + "', Position=N'" + position + "' WHERE ID=" + id;
+			ExercuteNonQuery(sql);
+		}
+
+		public void DeleteStaff( int id )
+		{
+			string sql = "DELETE FROM Staff WHERE ID = " + id;
+			ExercuteNonQuery(sql);
+		}
+
+		#endregion
 	}
 }

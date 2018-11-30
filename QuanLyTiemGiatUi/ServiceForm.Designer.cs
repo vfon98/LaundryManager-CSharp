@@ -36,9 +36,6 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.numSerPrice = new System.Windows.Forms.NumericUpDown();
 			this.gridServices = new System.Windows.Forms.DataGridView();
-			this.sTTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.servicesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.quanLyGiatUiDataSet1 = new QuanLyTiemGiatUi.QuanLyGiatUiDataSet1();
 			this.btnAddSer = new System.Windows.Forms.Button();
@@ -46,6 +43,9 @@
 			this.btnDelSer = new System.Windows.Forms.Button();
 			this.servicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.servicesTableAdapter = new QuanLyTiemGiatUi.QuanLyGiatUiDataSet1TableAdapters.ServicesTableAdapter();
+			this.sTTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.numSerPrice)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridServices)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource1)).BeginInit();
@@ -56,10 +56,10 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-			this.label1.Location = new System.Drawing.Point(66, 9);
+			this.label1.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+			this.label1.Location = new System.Drawing.Point(66, 7);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(183, 24);
+			this.label1.Size = new System.Drawing.Size(196, 28);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Danh sách dịch vụ";
 			// 
@@ -137,25 +137,6 @@
 			this.gridServices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridServices_CellClick);
 			this.gridServices.SelectionChanged += new System.EventHandler(this.gridServices_SelectionChanged);
 			// 
-			// sTTDataGridViewTextBoxColumn
-			// 
-			this.sTTDataGridViewTextBoxColumn.DataPropertyName = "STT";
-			this.sTTDataGridViewTextBoxColumn.HeaderText = "STT";
-			this.sTTDataGridViewTextBoxColumn.Name = "sTTDataGridViewTextBoxColumn";
-			this.sTTDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// nameDataGridViewTextBoxColumn
-			// 
-			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-			this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-			// 
-			// priceDataGridViewTextBoxColumn
-			// 
-			this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-			this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-			this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-			// 
 			// servicesBindingSource1
 			// 
 			this.servicesBindingSource1.DataMember = "Services";
@@ -207,6 +188,25 @@
 			// 
 			this.servicesTableAdapter.ClearBeforeFill = true;
 			// 
+			// sTTDataGridViewTextBoxColumn
+			// 
+			this.sTTDataGridViewTextBoxColumn.DataPropertyName = "STT";
+			this.sTTDataGridViewTextBoxColumn.HeaderText = "STT";
+			this.sTTDataGridViewTextBoxColumn.Name = "sTTDataGridViewTextBoxColumn";
+			this.sTTDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// nameDataGridViewTextBoxColumn
+			// 
+			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+			this.nameDataGridViewTextBoxColumn.HeaderText = "Tên dịch vụ";
+			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+			// 
+			// priceDataGridViewTextBoxColumn
+			// 
+			this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+			this.priceDataGridViewTextBoxColumn.HeaderText = "Đơn giá";
+			this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+			// 
 			// ServiceForm
 			// 
 			this.AcceptButton = this.btnAddSer;
@@ -252,9 +252,9 @@
 		private QuanLyGiatUiDataSet1 quanLyGiatUiDataSet1;
 		private System.Windows.Forms.BindingSource servicesBindingSource;
 		private QuanLyGiatUiDataSet1TableAdapters.ServicesTableAdapter servicesTableAdapter;
+		private System.Windows.Forms.BindingSource servicesBindingSource1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn sTTDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-		private System.Windows.Forms.BindingSource servicesBindingSource1;
 	}
 }
