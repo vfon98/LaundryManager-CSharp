@@ -11,3 +11,4 @@ D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.frmMain.resou
 D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.OrderForm.resources
 D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.ServiceForm.resources
 D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.StaffForm.resources
+D:\C#\QuanLyTiemGiatUi\QuanLyTiemGiatUi\obj\Debug\QuanLyTiemGiatUi.ReportForm.resources

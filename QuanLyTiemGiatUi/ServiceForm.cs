@@ -30,33 +30,15 @@ namespace QuanLyTiemGiatUi
 			numSerPrice.DataBindings.Add("Value", dtService, "Price");
 		}
 
-		private void btnAddSer_Click( object sender, EventArgs e )
-		{
-			if (txtSerName.Text != "")
-			{
-				DataProvider.Instance.InsertService(txtSerName.Text, numSerPrice.Value);
-				dtService = DataProvider.Instance.GetAllServices();
-				gridServices.DataSource = dtService;
-				ResetField();
-			}
-		}
 		private void ResetField()
 		{
 			txtSerName.ResetText();
-			numSerPrice.ResetText();
+			numSerPrice.Value = 0;
 		}
 
 		private void gridServices_CellClick( object sender, DataGridViewCellEventArgs e )
 		{
 			btnDelSer.Enabled = true;
-		}
-
-		private void btnDelSer_Click( object sender, EventArgs e )
-		{
-			DataProvider.Instance.DeleteService(selectedID);
-			dtService = DataProvider.Instance.GetAllServices();
-			gridServices.DataSource = dtService;
-			ResetField();
 		}
 
 		private void gridServices_SelectionChanged( object sender, EventArgs e )
@@ -69,12 +51,39 @@ namespace QuanLyTiemGiatUi
 			}
 		}
 
+		private void btnAddSer_Click( object sender, EventArgs e )
+		{
+			if (txtSerName.Text != "" && numSerPrice.Value != 0)
+			{
+				DataProvider.Instance.InsertService(txtSerName.Text, numSerPrice.Value);
+				dtService = DataProvider.Instance.GetAllServices();
+				gridServices.DataSource = dtService;
+				ResetField();
+				MessageBox.Show("Thêm dịch vụ thành công !", "Thông báo");
+			}
+			else
+			{
+				MessageBox.Show("Vui lòng điền đầy đủ thông tin !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
 		private void btnModifySer_Click( object sender, EventArgs e )
 		{
 			DataProvider.Instance.UpdateService(selectedID, txtSerName.Text, numSerPrice.Value);
 			dtService = DataProvider.Instance.GetAllServices();
 			gridServices.DataSource = dtService;
 			ResetField();
+			MessageBox.Show("Chỉnh sửa dịch vụ thành công !", "Thông báo");
 		}
+
+		private void btnDelSer_Click( object sender, EventArgs e )
+		{
+			DataProvider.Instance.DeleteService(selectedID);
+			dtService = DataProvider.Instance.GetAllServices();
+			gridServices.DataSource = dtService;
+			ResetField();
+			MessageBox.Show("Xóa dịch vụ thành công !", "Thông báo");
+		}
+
 	}
 }

@@ -46,6 +46,7 @@ namespace QuanLyTiemGiatUi
 				DataProvider.Instance.InsertStaff(txtStaffName.Text, txtAddress.Text, txtPhoneNum.Text, cboFunction.Text);
 				this.staffTableAdapter.Fill(this.quanLyGiatUiDataSet.Staff);
 				ResetFields();
+				MessageBox.Show("Thêm nhân viên thành công !", "Thông báo");
 			}
 		}
 
@@ -53,12 +54,16 @@ namespace QuanLyTiemGiatUi
 		{
 			DataProvider.Instance.UpdateStaff(staffID, txtStaffName.Text, txtAddress.Text, txtPhoneNum.Text, cboFunction.Text);
 			this.staffTableAdapter.Fill(this.quanLyGiatUiDataSet.Staff);
+			ResetFields();
+			MessageBox.Show("Chỉnh sửa nhân viên thành công !", "Thông báo");
 		}
 
 		private void btnDeleteStaff_Click( object sender, EventArgs e )
 		{
 			DataProvider.Instance.DeleteStaff(staffID);
 			this.staffTableAdapter.Fill(this.quanLyGiatUiDataSet.Staff);
+			ResetFields();
+			MessageBox.Show("Xóa nhân viên thành công !", "Thông báo");
 		}
 
 		private void ResetFields()

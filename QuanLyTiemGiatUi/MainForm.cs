@@ -24,12 +24,20 @@ namespace QuanLyTiemGiatUi
 		public frmMain()
 		{
 			InitializeComponent();
-			LoadService();
 		}
 
-		void LoadService()
+		private void frmMain_Load( object sender, EventArgs e )
 		{
-			gridService.DataSource = DataProvider.Instance.GetAllServices();
+			// TODO: This line of code loads data into the 'quanLyGiatUiDataSet.Services' table. You can move, or remove it, as needed.
+			this.servicesTableAdapter.Fill(this.quanLyGiatUiDataSet.Services);
+			// TODO: This line of code loads data into the 'quanLyGiatUiDataSet.UnpaidOrder' table. You can move, or remove it, as needed.
+			this.unpaidOrderTableAdapter.Fill(this.quanLyGiatUiDataSet.UnpaidOrder);
+			// TODO: This line of code loads data into the 'quanLyGiatUiDataSet.PendingOrder' table. You can move, or remove it, as needed.
+			this.pendingOrderTableAdapter.Fill(this.quanLyGiatUiDataSet.PendingOrder);
+			cboService.DataSource = DataProvider.Instance.GetAllServices();
+			cboService.DisplayMember = "Name";
+			cboService.ValueMember = "Price";
+			initialized = true;
 		}
 
 		#region	submenu-click
@@ -56,12 +64,19 @@ namespace QuanLyTiemGiatUi
 		{
 			new StaffForm().ShowDialog();
 		}
+
+		private void menuReport_Click( object sender, EventArgs e )
+		{
+			new ReportForm().ShowDialog();
+		}
+
 		#endregion
 
 		#region FromCloseHandling
+
 		private void frmMain_FormClosing( object sender, FormClosingEventArgs e )
 		{
-			DialogResult choice = MessageBox.Show("Bạn có thật sự muốn thoát ?", "Xác nhận thoát", MessageBoxButtons.YesNo);
+			DialogResult choice = MessageBox.Show("Bạn có thật sự muốn thoát ?", "Xác nhận thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (choice == DialogResult.No)
 			{
 				e.Cancel = true;
@@ -70,7 +85,7 @@ namespace QuanLyTiemGiatUi
 
 		private void menuLogout_Click( object sender, EventArgs e )
 		{
-			DialogResult choice = MessageBox.Show("Bạn có thực sự muốn đăng xuất ?", "Đăng xuất", MessageBoxButtons.YesNo);
+			DialogResult choice = MessageBox.Show("Bạn có thực sự muốn đăng xuất ?", "Đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (choice == DialogResult.Yes)
 			{
 				this.Hide();
@@ -78,33 +93,21 @@ namespace QuanLyTiemGiatUi
 				new frmLogin().ShowDialog();
 			}
 		}
+
 		#endregion
 
-		private void frmMain_Load( object sender, EventArgs e )
-		{
-			// TODO: This line of code loads data into the 'quanLyGiatUiDataSet.Services' table. You can move, or remove it, as needed.
-			this.servicesTableAdapter.Fill(this.quanLyGiatUiDataSet.Services);
-			// TODO: This line of code loads data into the 'quanLyGiatUiDataSet.UnpaidOrder' table. You can move, or remove it, as needed.
-			this.unpaidOrderTableAdapter.Fill(this.quanLyGiatUiDataSet.UnpaidOrder);
-			// TODO: This line of code loads data into the 'quanLyGiatUiDataSet.PendingOrder' table. You can move, or remove it, as needed.
-			this.pendingOrderTableAdapter.Fill(this.quanLyGiatUiDataSet.PendingOrder);
-			cboService.DataSource = DataProvider.Instance.GetAllServices();
-			cboService.DisplayMember = "Name";
-			cboService.ValueMember = "Price";
-			//cboService.SelectedIndex = 1;
-			initialized = true;
-		}
+		#region Order Tab
 
 		private void numWeight_ValueChanged( object sender, EventArgs e )
 		{
 			CalculatePrice();
-			lblPrice.Text = price.ToString() + " VND";
+			lblPrice.Text = price.ToString("# ###") + " VND";
 		}
 
 		private void cboService_SelectedIndexChanged( object sender, EventArgs e )
 		{
 			CalculatePrice();
-			lblPrice.Text = price.ToString() + " VND";
+			lblPrice.Text = price.ToString("# ###") + " VND";
 		}
 
 		public void CalculatePrice()
@@ -136,7 +139,7 @@ namespace QuanLyTiemGiatUi
 		{
 			if (txtCusName.Text == "" || txtPhoneNum.Text == "" || txtAddress.Text == "" || txtOrderName.Text == "")
 			{
-				MessageBox.Show("Vui lòng điền đầy đủ thông tin !", "Thông báo");
+				MessageBox.Show("Vui lòng điền đầy đủ thông tin !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			else
 			{
@@ -182,10 +185,12 @@ namespace QuanLyTiemGiatUi
 			ResetFields();
 		}
 
-		#region	TabPending
+		#endregion`
 
-		private void gridPendingOrder_RowEnter( object sender, DataGridViewCellEventArgs e )
+		#region	Pending Tab
+		private void gridPendingOrder_SelectionChanged( object sender, EventArgs e )
 		{
+
 			foreach (DataGridViewRow item in gridPendingOrder.SelectedRows)
 			{
 				pendingOrderID = Convert.ToInt32(item.Cells[0].Value);
@@ -196,6 +201,27 @@ namespace QuanLyTiemGiatUi
 		{
 			DataProvider.Instance.AcceptOrder(pendingOrderID);
 			this.pendingOrderTableAdapter.Fill(this.quanLyGiatUiDataSet.PendingOrder);
+			MessageBox.Show("Đã tiếp nhận !", "Thông báo");
+		}
+
+		#endregion
+
+		#region Unpaid Tab
+
+
+		private void btnPaid_Click( object sender, EventArgs e )
+		{
+			DataProvider.Instance.SetPaidOrder(unpaidOrderID);
+			this.unpaidOrderTableAdapter.Fill(this.quanLyGiatUiDataSet.UnpaidOrder);
+			MessageBox.Show("Đã thanh toán !", "Thông báo");
+		}
+
+		private void gridUnpaidOrder_SelectionChanged( object sender, EventArgs e )
+		{
+			foreach (DataGridViewRow item in gridUnpaidOrder.SelectedRows)
+			{
+				unpaidOrderID = Convert.ToInt32(item.Cells[0].Value);
+			}
 		}
 
 		#endregion
@@ -213,25 +239,5 @@ namespace QuanLyTiemGiatUi
 		}
 
 		#endregion
-
-		#region UnpaidTab Event
-
-
-		private void btnPaid_Click( object sender, EventArgs e )
-		{
-			DataProvider.Instance.SetPaidOrder(unpaidOrderID);
-			this.unpaidOrderTableAdapter.Fill(this.quanLyGiatUiDataSet.UnpaidOrder);
-		}
-
-		private void gridUnpaidOrder_SelectionChanged( object sender, EventArgs e )
-		{
-			foreach (DataGridViewRow item in gridUnpaidOrder.SelectedRows)
-			{
-				unpaidOrderID = Convert.ToInt32(item.Cells[0].Value);
-			}
-		}
-
-		#endregion
-
 	}
 }

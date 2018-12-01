@@ -1,4 +1,4 @@
-USE QuanLyGiatUi
+﻿USE QuanLyGiatUi
 GO
 
 CREATE TABLE Services (
@@ -25,6 +25,18 @@ CREATE TABLE Orders (
 SELECT * FROM Orders
 GO
 
-INSERT INTO Orders (CustomerName, Phone, Address, OrderName, Service, Weight, Delivery, Price, Status) VALUES ('Phong', '2115', 'NVC', 'Ao', 'Giat kho', 0.2, 1, 12000 , 'CHua hoan thanh')
+CREATE TABLE Staff (
+	ID INT IDENTITY(1,1) PRIMARY KEY,
+	Name NVARCHAR(100) NOT NULL,
+	[Address] NVARCHAR(200),
+	Phone NVARCHAR(20) NOT NULL,
+	[Function] NVARCHAR(100) NOT NULL
+)
 GO
-SELECT * FROM Orders, Services
+
+INSERT INTO Staff VALUES (N'Sang', N'NVC', '0125487', N'Nhân viên tiếp nhận')
+GO
+SELECT * FROM Staff
+
+SELECT SUM(Price) FROM Orders WHERE Status = N'Đã thanh toán' AND Day(Date) = 28
+SELECT * FROM Orders WHERE MONTH(Date) = 10

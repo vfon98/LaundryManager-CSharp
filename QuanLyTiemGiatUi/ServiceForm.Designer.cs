@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -117,10 +118,16 @@
 			// 
 			// gridServices
 			// 
+			this.gridServices.AllowUserToAddRows = false;
+			this.gridServices.AllowUserToDeleteRows = false;
 			this.gridServices.AllowUserToResizeColumns = false;
 			this.gridServices.AllowUserToResizeRows = false;
+			this.gridServices.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.gridServices.AutoGenerateColumns = false;
 			this.gridServices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.gridServices.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
 			this.gridServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.gridServices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sTTDataGridViewTextBoxColumn,
@@ -130,6 +137,7 @@
 			this.gridServices.Location = new System.Drawing.Point(5, 158);
 			this.gridServices.MultiSelect = false;
 			this.gridServices.Name = "gridServices";
+			this.gridServices.ReadOnly = true;
 			this.gridServices.RowHeadersVisible = false;
 			this.gridServices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.gridServices.Size = new System.Drawing.Size(301, 218);
@@ -200,12 +208,17 @@
 			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
 			this.nameDataGridViewTextBoxColumn.HeaderText = "Tên dịch vụ";
 			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+			this.nameDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// priceDataGridViewTextBoxColumn
 			// 
 			this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-			this.priceDataGridViewTextBoxColumn.HeaderText = "Đơn giá";
+			dataGridViewCellStyle1.Format = "N0";
+			dataGridViewCellStyle1.NullValue = null;
+			this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+			this.priceDataGridViewTextBoxColumn.HeaderText = "Đơn giá (VND/kg)";
 			this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+			this.priceDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// ServiceForm
 			// 

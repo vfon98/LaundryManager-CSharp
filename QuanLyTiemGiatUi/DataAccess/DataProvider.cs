@@ -29,6 +29,8 @@ namespace QuanLyTiemGiatUi.DataAccess
 
 		private DataProvider() { }
 
+		#region Query Exercuting
+
 		public DataTable ExercuteQuery( String sql )
 		{
 			using (SqlConnection conn = new SqlConnection(conectionString))
@@ -54,7 +56,9 @@ namespace QuanLyTiemGiatUi.DataAccess
 			}
 		}
 
-		#region ServiceManagement
+		#endregion
+
+		#region Service Management
 
 		public DataTable GetAllServices()
 		{
@@ -66,7 +70,6 @@ namespace QuanLyTiemGiatUi.DataAccess
 		public void InsertService( string name, decimal price )
 		{
 			string sql = "INSERT INTO Services VALUES (N'" + name + "', " + price + ")";
-			System.Windows.Forms.MessageBox.Show(sql);
 			ExercuteNonQuery(sql);
 		}
 
@@ -84,7 +87,7 @@ namespace QuanLyTiemGiatUi.DataAccess
 
 		#endregion
 
-		#region OrderManagement
+		#region Order Management
 
 		public void InsertOrder( string cusName, string phone, string address, string orderName, string service, float weight, int delivery, decimal price )
 		{
@@ -114,7 +117,7 @@ namespace QuanLyTiemGiatUi.DataAccess
 
 		#endregion
 
-		#region StaffManagement
+		#region Staff Management
 
 		public void InsertStaff( string name, string address, string phone, string position )
 		{
@@ -132,6 +135,34 @@ namespace QuanLyTiemGiatUi.DataAccess
 		{
 			string sql = "DELETE FROM Staff WHERE ID = " + id;
 			ExercuteNonQuery(sql);
+		}
+
+		#endregion
+
+		#region Report Searching
+
+		public DataTable GetOrderByYear( string year )
+		{
+			DataTable dtYear = new DataTable();
+			string sql = "SELECT * FROM Orders WHERE Status = N'Đã thanh toán' AND YEAR(Date) = " + year;
+			dtYear = ExercuteQuery(sql);
+			return dtYear;
+		}
+
+		public DataTable GetOrderByMonth( string month, string year )
+		{
+			DataTable dtYear = new DataTable();
+			string sql = "SELECT * FROM Orders WHERE Status = N'Đã thanh toán' AND MONTH(Date) = " + month + " AND YEAR(Date) = " + year;
+			dtYear = ExercuteQuery(sql);
+			return dtYear;
+		}
+
+		public DataTable GetOrderByDay( string day, string month, string year )
+		{
+			DataTable dtYear = new DataTable();
+			string sql = "SELECT * FROM Orders WHERE Status = N'Đã thanh toán' AND DAY(Date)  =" + day + " AND MONTH(Date)=" + month + " AND YEAR(Date)=" + year;
+			dtYear = ExercuteQuery(sql);
+			return dtYear;
 		}
 
 		#endregion

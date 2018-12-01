@@ -80,10 +80,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyGiatUiDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyGiatUiDataSet2.cs">
+      <DependentUpon>QuanLyGiatUiDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="QuanLyGiatUiDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyGiatUiDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ServiceForm.cs">
       <SubType>Form</SubType>
@@ -115,6 +124,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceForm.resx">
       <DependentUpon>ServiceForm.cs</DependentUpon>
     </EmbeddedResource>

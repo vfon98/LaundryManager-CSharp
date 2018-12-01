@@ -29,10 +29,16 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.parentTab = new System.Windows.Forms.TabControl();
 			this.tabMain = new System.Windows.Forms.TabPage();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.gridService = new System.Windows.Forms.DataGridView();
+			this.servicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.quanLyGiatUiDataSet = new QuanLyTiemGiatUi.QuanLyGiatUiDataSet();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.radDelivery = new System.Windows.Forms.GroupBox();
@@ -61,7 +67,6 @@
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.gridPendingOrder = new System.Windows.Forms.DataGridView();
 			this.pendingOrderBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-			this.quanLyGiatUiDataSet = new QuanLyTiemGiatUi.QuanLyGiatUiDataSet();
 			this.tabUnpaid = new System.Windows.Forms.TabPage();
 			this.btnPaid = new System.Windows.Forms.Button();
 			this.panel4 = new System.Windows.Forms.Panel();
@@ -73,10 +78,12 @@
 			this.menuStaff = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuLogout = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.menuReport = new System.Windows.Forms.ToolStripMenuItem();
 			this.unpaidOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.unpaidOrderTableAdapter = new QuanLyTiemGiatUi.QuanLyGiatUiDataSetTableAdapters.UnpaidOrderTableAdapter();
 			this.pendingOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.unpaidOrderTableAdapter = new QuanLyTiemGiatUi.QuanLyGiatUiDataSetTableAdapters.UnpaidOrderTableAdapter();
 			this.pendingOrderTableAdapter = new QuanLyTiemGiatUi.QuanLyGiatUiDataSetTableAdapters.PendingOrderTableAdapter();
+			this.servicesTableAdapter = new QuanLyTiemGiatUi.QuanLyGiatUiDataSetTableAdapters.ServicesTableAdapter();
 			this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,17 +98,17 @@
 			this.orderNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.serviceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.weightDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.deliveryDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.deliveryDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.servicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.servicesTableAdapter = new QuanLyTiemGiatUi.QuanLyGiatUiDataSetTableAdapters.ServicesTableAdapter();
 			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.priceDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.parentTab.SuspendLayout();
 			this.tabMain.SuspendLayout();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridService)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.quanLyGiatUiDataSet)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.radDelivery.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numWeight)).BeginInit();
@@ -109,7 +116,6 @@
 			this.panel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridPendingOrder)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pendingOrderBindingSource1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.quanLyGiatUiDataSet)).BeginInit();
 			this.tabUnpaid.SuspendLayout();
 			this.panel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridUnpaidOrder)).BeginInit();
@@ -117,7 +123,6 @@
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.unpaidOrderBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pendingOrderBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// parentTab
@@ -179,6 +184,16 @@
 			this.gridService.Size = new System.Drawing.Size(184, 368);
 			this.gridService.TabIndex = 1;
 			this.gridService.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridService_RowEnter);
+			// 
+			// servicesBindingSource
+			// 
+			this.servicesBindingSource.DataMember = "Services";
+			this.servicesBindingSource.DataSource = this.quanLyGiatUiDataSet;
+			// 
+			// quanLyGiatUiDataSet
+			// 
+			this.quanLyGiatUiDataSet.DataSetName = "QuanLyGiatUiDataSet";
+			this.quanLyGiatUiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
 			// label1
 			// 
@@ -470,6 +485,8 @@
 			// 
 			// gridPendingOrder
 			// 
+			this.gridPendingOrder.AllowUserToAddRows = false;
+			this.gridPendingOrder.AllowUserToDeleteRows = false;
 			this.gridPendingOrder.AllowUserToResizeRows = false;
 			this.gridPendingOrder.AutoGenerateColumns = false;
 			this.gridPendingOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
@@ -493,17 +510,12 @@
 			this.gridPendingOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.gridPendingOrder.Size = new System.Drawing.Size(461, 348);
 			this.gridPendingOrder.TabIndex = 0;
-			this.gridPendingOrder.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPendingOrder_RowEnter);
+			this.gridPendingOrder.SelectionChanged += new System.EventHandler(this.gridPendingOrder_SelectionChanged);
 			// 
 			// pendingOrderBindingSource1
 			// 
 			this.pendingOrderBindingSource1.DataMember = "PendingOrder";
 			this.pendingOrderBindingSource1.DataSource = this.quanLyGiatUiDataSet;
-			// 
-			// quanLyGiatUiDataSet
-			// 
-			this.quanLyGiatUiDataSet.DataSetName = "QuanLyGiatUiDataSet";
-			this.quanLyGiatUiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
 			// tabUnpaid
 			// 
@@ -540,6 +552,8 @@
 			// 
 			// gridUnpaidOrder
 			// 
+			this.gridUnpaidOrder.AllowUserToAddRows = false;
+			this.gridUnpaidOrder.AllowUserToDeleteRows = false;
 			this.gridUnpaidOrder.AllowUserToResizeRows = false;
 			this.gridUnpaidOrder.AutoGenerateColumns = false;
 			this.gridUnpaidOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
@@ -551,8 +565,8 @@
             this.orderNameDataGridViewTextBoxColumn1,
             this.serviceDataGridViewTextBoxColumn1,
             this.weightDataGridViewTextBoxColumn1,
-            this.deliveryDataGridViewCheckBoxColumn1,
             this.priceDataGridViewTextBoxColumn1,
+            this.deliveryDataGridViewCheckBoxColumn1,
             this.dateDataGridViewTextBoxColumn1});
 			this.gridUnpaidOrder.DataSource = this.unpaidOrderBindingSource1;
 			this.gridUnpaidOrder.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -617,12 +631,20 @@
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quảnLýToolStripMenuItem,
+            this.menuReport,
             this.menuLogout});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(475, 24);
 			this.menuStrip1.TabIndex = 1;
 			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// menuReport
+			// 
+			this.menuReport.Name = "menuReport";
+			this.menuReport.Size = new System.Drawing.Size(127, 20);
+			this.menuReport.Text = "Thống kê doanh thu";
+			this.menuReport.Click += new System.EventHandler(this.menuReport_Click);
 			// 
 			// unpaidOrderTableAdapter
 			// 
@@ -631,6 +653,10 @@
 			// pendingOrderTableAdapter
 			// 
 			this.pendingOrderTableAdapter.ClearBeforeFill = true;
+			// 
+			// servicesTableAdapter
+			// 
+			this.servicesTableAdapter.ClearBeforeFill = true;
 			// 
 			// iDDataGridViewTextBoxColumn
 			// 
@@ -675,18 +701,21 @@
 			// weightDataGridViewTextBoxColumn
 			// 
 			this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-			this.weightDataGridViewTextBoxColumn.HeaderText = "K.Lượng";
+			this.weightDataGridViewTextBoxColumn.HeaderText = "K.Lượng (kg)";
 			this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
 			this.weightDataGridViewTextBoxColumn.ReadOnly = true;
-			this.weightDataGridViewTextBoxColumn.Width = 72;
+			this.weightDataGridViewTextBoxColumn.Width = 93;
 			// 
 			// priceDataGridViewTextBoxColumn
 			// 
 			this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-			this.priceDataGridViewTextBoxColumn.HeaderText = "Chi phí";
+			dataGridViewCellStyle2.Format = "N0";
+			dataGridViewCellStyle2.NullValue = null;
+			this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+			this.priceDataGridViewTextBoxColumn.HeaderText = "Chi phí (VND)";
 			this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
 			this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-			this.priceDataGridViewTextBoxColumn.Width = 66;
+			this.priceDataGridViewTextBoxColumn.Width = 98;
 			// 
 			// dateDataGridViewTextBoxColumn
 			// 
@@ -699,6 +728,8 @@
 			// iDDataGridViewTextBoxColumn1
 			// 
 			this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+			dataGridViewCellStyle3.NullValue = null;
+			this.iDDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
 			this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
 			this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
 			this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -739,10 +770,21 @@
 			// weightDataGridViewTextBoxColumn1
 			// 
 			this.weightDataGridViewTextBoxColumn1.DataPropertyName = "Weight";
-			this.weightDataGridViewTextBoxColumn1.HeaderText = "K.Lượng";
+			this.weightDataGridViewTextBoxColumn1.HeaderText = "K.Lượng (kg)";
 			this.weightDataGridViewTextBoxColumn1.Name = "weightDataGridViewTextBoxColumn1";
 			this.weightDataGridViewTextBoxColumn1.ReadOnly = true;
-			this.weightDataGridViewTextBoxColumn1.Width = 72;
+			this.weightDataGridViewTextBoxColumn1.Width = 93;
+			// 
+			// priceDataGridViewTextBoxColumn1
+			// 
+			this.priceDataGridViewTextBoxColumn1.DataPropertyName = "Price";
+			dataGridViewCellStyle4.Format = "N0";
+			dataGridViewCellStyle4.NullValue = null;
+			this.priceDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+			this.priceDataGridViewTextBoxColumn1.HeaderText = "Chi phí (VND)";
+			this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
+			this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
+			this.priceDataGridViewTextBoxColumn1.Width = 98;
 			// 
 			// deliveryDataGridViewCheckBoxColumn1
 			// 
@@ -752,14 +794,6 @@
 			this.deliveryDataGridViewCheckBoxColumn1.ReadOnly = true;
 			this.deliveryDataGridViewCheckBoxColumn1.Width = 62;
 			// 
-			// priceDataGridViewTextBoxColumn1
-			// 
-			this.priceDataGridViewTextBoxColumn1.DataPropertyName = "Price";
-			this.priceDataGridViewTextBoxColumn1.HeaderText = "Chi phí";
-			this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
-			this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
-			this.priceDataGridViewTextBoxColumn1.Width = 66;
-			// 
 			// dateDataGridViewTextBoxColumn1
 			// 
 			this.dateDataGridViewTextBoxColumn1.DataPropertyName = "Date";
@@ -767,15 +801,6 @@
 			this.dateDataGridViewTextBoxColumn1.Name = "dateDataGridViewTextBoxColumn1";
 			this.dateDataGridViewTextBoxColumn1.ReadOnly = true;
 			this.dateDataGridViewTextBoxColumn1.Width = 84;
-			// 
-			// servicesBindingSource
-			// 
-			this.servicesBindingSource.DataMember = "Services";
-			this.servicesBindingSource.DataSource = this.quanLyGiatUiDataSet;
-			// 
-			// servicesTableAdapter
-			// 
-			this.servicesTableAdapter.ClearBeforeFill = true;
 			// 
 			// nameDataGridViewTextBoxColumn
 			// 
@@ -787,7 +812,10 @@
 			// priceDataGridViewTextBoxColumn2
 			// 
 			this.priceDataGridViewTextBoxColumn2.DataPropertyName = "Price";
-			this.priceDataGridViewTextBoxColumn2.HeaderText = "Đơn giá";
+			dataGridViewCellStyle1.Format = "N0";
+			dataGridViewCellStyle1.NullValue = null;
+			this.priceDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle1;
+			this.priceDataGridViewTextBoxColumn2.HeaderText = "Đơn giá (VND/kg)";
 			this.priceDataGridViewTextBoxColumn2.Name = "priceDataGridViewTextBoxColumn2";
 			this.priceDataGridViewTextBoxColumn2.ReadOnly = true;
 			// 
@@ -809,6 +837,8 @@
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.gridService)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.quanLyGiatUiDataSet)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.radDelivery.ResumeLayout(false);
@@ -818,7 +848,6 @@
 			this.panel3.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.gridPendingOrder)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pendingOrderBindingSource1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.quanLyGiatUiDataSet)).EndInit();
 			this.tabUnpaid.ResumeLayout(false);
 			this.tabUnpaid.PerformLayout();
 			this.panel4.ResumeLayout(false);
@@ -828,7 +857,6 @@
 			this.menuStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.unpaidOrderBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pendingOrderBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -884,6 +912,9 @@
 		private System.Windows.Forms.BindingSource pendingOrderBindingSource1;
 		private QuanLyGiatUiDataSetTableAdapters.PendingOrderTableAdapter pendingOrderTableAdapter;
 		private System.Windows.Forms.BindingSource unpaidOrderBindingSource1;
+		private System.Windows.Forms.BindingSource servicesBindingSource;
+		private QuanLyGiatUiDataSetTableAdapters.ServicesTableAdapter servicesTableAdapter;
+		private System.Windows.Forms.ToolStripMenuItem menuReport;
 		private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
@@ -898,11 +929,9 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn orderNameDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn serviceDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn1;
-		private System.Windows.Forms.DataGridViewCheckBoxColumn deliveryDataGridViewCheckBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn deliveryDataGridViewCheckBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn1;
-		private System.Windows.Forms.BindingSource servicesBindingSource;
-		private QuanLyGiatUiDataSetTableAdapters.ServicesTableAdapter servicesTableAdapter;
 		private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn2;
 	}

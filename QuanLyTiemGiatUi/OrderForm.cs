@@ -34,6 +34,7 @@ namespace QuanLyTiemGiatUi
 		{
 			DataProvider.Instance.DeleteOrder(orderID);
 			this.ordersTableAdapter.Fill(this.quanLyGiatUiDataSet2.Orders);
+			MessageBox.Show("Xóa đơn hàng thành công !", "Thông báo");
 		}
 
 		private void gridOrderList_SelectionChanged( object sender, EventArgs e )

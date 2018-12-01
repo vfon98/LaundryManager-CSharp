@@ -29,7 +29,13 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.gridOrderList = new System.Windows.Forms.DataGridView();
+			this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.quanLyGiatUiDataSet2 = new QuanLyTiemGiatUi.QuanLyGiatUiDataSet2();
+			this.btnDelOrder = new System.Windows.Forms.Button();
+			this.ordersTableAdapter = new QuanLyTiemGiatUi.QuanLyGiatUiDataSet2TableAdapters.OrdersTableAdapter();
+			this.btnExit = new System.Windows.Forms.Button();
 			this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,11 +47,6 @@
 			this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.quanLyGiatUiDataSet2 = new QuanLyTiemGiatUi.QuanLyGiatUiDataSet2();
-			this.btnDelOrder = new System.Windows.Forms.Button();
-			this.ordersTableAdapter = new QuanLyTiemGiatUi.QuanLyGiatUiDataSet2TableAdapters.OrdersTableAdapter();
-			this.btnExit = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.gridOrderList)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.quanLyGiatUiDataSet2)).BeginInit();
@@ -53,6 +54,8 @@
 			// 
 			// gridOrderList
 			// 
+			this.gridOrderList.AllowUserToAddRows = false;
+			this.gridOrderList.AllowUserToDeleteRows = false;
 			this.gridOrderList.AllowUserToResizeRows = false;
 			this.gridOrderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -82,6 +85,49 @@
 			this.gridOrderList.Size = new System.Drawing.Size(799, 362);
 			this.gridOrderList.TabIndex = 0;
 			this.gridOrderList.SelectionChanged += new System.EventHandler(this.gridOrderList_SelectionChanged);
+			// 
+			// ordersBindingSource
+			// 
+			this.ordersBindingSource.DataMember = "Orders";
+			this.ordersBindingSource.DataSource = this.quanLyGiatUiDataSet2;
+			// 
+			// quanLyGiatUiDataSet2
+			// 
+			this.quanLyGiatUiDataSet2.DataSetName = "QuanLyGiatUiDataSet2";
+			this.quanLyGiatUiDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// btnDelOrder
+			// 
+			this.btnDelOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnDelOrder.AutoSize = true;
+			this.btnDelOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+			this.btnDelOrder.Location = new System.Drawing.Point(296, 374);
+			this.btnDelOrder.Name = "btnDelOrder";
+			this.btnDelOrder.Size = new System.Drawing.Size(97, 30);
+			this.btnDelOrder.TabIndex = 1;
+			this.btnDelOrder.Text = "Xóa đơn hàng";
+			this.btnDelOrder.UseVisualStyleBackColor = true;
+			this.btnDelOrder.Click += new System.EventHandler(this.btnDelOrder_Click);
+			// 
+			// ordersTableAdapter
+			// 
+			this.ordersTableAdapter.ClearBeforeFill = true;
+			// 
+			// btnExit
+			// 
+			this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnExit.AutoSize = true;
+			this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+			this.btnExit.Location = new System.Drawing.Point(420, 373);
+			this.btnExit.Name = "btnExit";
+			this.btnExit.Size = new System.Drawing.Size(84, 30);
+			this.btnExit.TabIndex = 2;
+			this.btnExit.Text = "Thoát";
+			this.btnExit.UseVisualStyleBackColor = true;
+			this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
 			// 
 			// iDDataGridViewTextBoxColumn
 			// 
@@ -134,10 +180,10 @@
 			// weightDataGridViewTextBoxColumn
 			// 
 			this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-			this.weightDataGridViewTextBoxColumn.HeaderText = "Khối lượng";
+			this.weightDataGridViewTextBoxColumn.HeaderText = "Khối lượng (kg)";
 			this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
 			this.weightDataGridViewTextBoxColumn.ReadOnly = true;
-			this.weightDataGridViewTextBoxColumn.Width = 76;
+			this.weightDataGridViewTextBoxColumn.Width = 95;
 			// 
 			// deliveryDataGridViewCheckBoxColumn
 			// 
@@ -150,10 +196,13 @@
 			// priceDataGridViewTextBoxColumn
 			// 
 			this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-			this.priceDataGridViewTextBoxColumn.HeaderText = "Thành tiền";
+			dataGridViewCellStyle1.Format = "N0";
+			dataGridViewCellStyle1.NullValue = null;
+			this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+			this.priceDataGridViewTextBoxColumn.HeaderText = "Thành tiền (VND)";
 			this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
 			this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-			this.priceDataGridViewTextBoxColumn.Width = 77;
+			this.priceDataGridViewTextBoxColumn.Width = 105;
 			// 
 			// statusDataGridViewTextBoxColumn
 			// 
@@ -170,49 +219,6 @@
 			this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
 			this.dateDataGridViewTextBoxColumn.ReadOnly = true;
 			this.dateDataGridViewTextBoxColumn.Width = 70;
-			// 
-			// ordersBindingSource
-			// 
-			this.ordersBindingSource.DataMember = "Orders";
-			this.ordersBindingSource.DataSource = this.quanLyGiatUiDataSet2;
-			// 
-			// quanLyGiatUiDataSet2
-			// 
-			this.quanLyGiatUiDataSet2.DataSetName = "QuanLyGiatUiDataSet2";
-			this.quanLyGiatUiDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-			// 
-			// btnDelOrder
-			// 
-			this.btnDelOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnDelOrder.AutoSize = true;
-			this.btnDelOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-			this.btnDelOrder.Location = new System.Drawing.Point(296, 374);
-			this.btnDelOrder.Name = "btnDelOrder";
-			this.btnDelOrder.Size = new System.Drawing.Size(97, 30);
-			this.btnDelOrder.TabIndex = 1;
-			this.btnDelOrder.Text = "Xóa đơn hàng";
-			this.btnDelOrder.UseVisualStyleBackColor = true;
-			this.btnDelOrder.Click += new System.EventHandler(this.btnDelOrder_Click);
-			// 
-			// ordersTableAdapter
-			// 
-			this.ordersTableAdapter.ClearBeforeFill = true;
-			// 
-			// btnExit
-			// 
-			this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnExit.AutoSize = true;
-			this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-			this.btnExit.Location = new System.Drawing.Point(420, 373);
-			this.btnExit.Name = "btnExit";
-			this.btnExit.Size = new System.Drawing.Size(84, 30);
-			this.btnExit.TabIndex = 2;
-			this.btnExit.Text = "Thoát";
-			this.btnExit.UseVisualStyleBackColor = true;
-			this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
 			// 
 			// OrderForm
 			// 
@@ -242,6 +248,7 @@
 		private QuanLyGiatUiDataSet2 quanLyGiatUiDataSet2;
 		private System.Windows.Forms.BindingSource ordersBindingSource;
 		private QuanLyGiatUiDataSet2TableAdapters.OrdersTableAdapter ordersTableAdapter;
+		private System.Windows.Forms.Button btnExit;
 		private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
@@ -253,6 +260,5 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-		private System.Windows.Forms.Button btnExit;
 	}
 }
